@@ -1,4 +1,4 @@
-# 🌟 Neovim Setup
+# 🌟 Neovim Setup v2
 
 A fast, modern, and highly customized Neovim configuration optimized for
 development.\
