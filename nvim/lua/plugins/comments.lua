@@ -6,8 +6,6 @@ return {
     local key_opts = { noremap = true, silent = true }
 
     -- Normal mode toggles
-    vim.keymap.set('n', '<C-_>', require('Comment.api').toggle.linewise.current, key_opts)
-    vim.keymap.set('n', '<C-c>', require('Comment.api').toggle.linewise.current, key_opts)
     vim.keymap.set('n', '<C-/>', require('Comment.api').toggle.linewise.current, key_opts)
 
     -- Visual mode toggles
