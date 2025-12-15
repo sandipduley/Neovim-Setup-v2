@@ -24,9 +24,9 @@ vim.o.clipboard = 'unnamedplus'    -- sync system clipboard
 
 -- indentation / tabs
 vim.o.expandtab = true             -- tabs to spaces
-vim.o.shiftwidth = 4               -- indent size
+vim.o.shiftwidth = 2               -- indent size
 vim.o.tabstop = 4                  -- tab width
-vim.o.softtabstop = 4              -- editing tab width
+vim.o.softtabstop = 2              -- editing tab width
 vim.o.smartindent = true           -- smarter indentation
 vim.o.autoindent = true            -- copy indent from current line
 vim.o.breakindent = true           -- wrapped line indentation
@@ -66,3 +66,4 @@ vim.opt.iskeyword:append '-'       -- treat hyphenated words as one
 
 -- runtime path cleanup
 vim.opt.runtimepath:remove '/usr/share/vim/vimfiles' -- avoid vim plugin bleed
+
