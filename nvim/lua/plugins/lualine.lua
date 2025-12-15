@@ -58,9 +58,9 @@ return {
       'diagnostics',
       sources = { 'nvim_diagnostic' },
       sections = { 'error', 'warn' },
-      symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+      symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
       colored = true,
-      update_in_insert = false,
+      update_in_insert = true,
       cond = visible_if_wide,
     }
 
@@ -104,3 +104,4 @@ return {
     }
   end,
 }
+
