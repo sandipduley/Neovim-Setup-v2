@@ -80,7 +80,7 @@ return {
         -- Buffers & Marks
         ['<leader>sb'] = builtin.buffers,
         ['<leader><tab>'] = builtin.buffers,
-        ['<leader><leader>'] = builtin.buffers,
+        ['<leader>bb'] = builtin.buffers,
         ['<leader>sm'] = builtin.marks,
         ['<leader>so'] = builtin.oldfiles,
 
@@ -94,8 +94,8 @@ return {
         -- Search
         ['<leader>sf'] = builtin.find_files,
         ['<leader>sh'] = builtin.help_tags,
-        ['<leader>sw'] = builtin.grep_string,
-        ['<leader>sg'] = builtin.live_grep,
+        ['<leader>gs'] = builtin.grep_string,
+        ['<leader>gl'] = builtin.live_grep,
         ['<leader>sd'] = builtin.diagnostics,
         ['<leader>sr'] = builtin.resume,
 
@@ -119,4 +119,5 @@ return {
     }
   end,
 }
+
 
