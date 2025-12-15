@@ -12,7 +12,7 @@ return {
                         if vim.api.nvim_buf_get_option(buf, "filetype") == "undotree" then
                             vim.api.nvim_set_current_win(win)
 
-                            -- Responsive sizing: 50% width, 60% height of current Neovim window
+                            -- Responsive sizing: 30% width, 60% height of current Neovim window
                             local width = math.floor(vim.o.columns * 0.3)
                             local height = math.floor(vim.o.lines * 0.6)
                             vim.api.nvim_win_set_width(win, width)
