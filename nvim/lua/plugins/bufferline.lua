@@ -19,8 +19,8 @@ return {
         left_mouse_command = 'buffer %d',
         middle_mouse_command = nil,
 
-        buffer_close_icon = '✗',
-        close_icon = '',
+        buffer_close_icon = '',
+        close_icon = '󰯇',
 
         path_components = 1,
         modified_icon = '●',
