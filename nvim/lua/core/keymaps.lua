@@ -107,10 +107,3 @@ vim.keymap.set('n', '<leader>ed', '<cmd>TinyInlineDiag enable<CR>')  -- enable i
 vim.keymap.set('n', '<leader>dd', '<cmd>TinyInlineDiag disable<CR>') -- disable inline diagnostics
 vim.keymap.set('n', '<leader>td', '<cmd>TinyInlineDiag toggle<CR>')  -- toggle inline diagnostics
 
--- disable arrow keys in insert mode (force hjkl)
-vim.keymap.set('i', '<Up>', '<Nop>', opts)
-vim.keymap.set('i', '<Down>', '<Nop>', opts)
--- vim.keymap.set('i', '<Left>', '<Nop>', opts)
--- vim.keymap.set('i', '<Right>', '<Nop>', opts)
-
-
