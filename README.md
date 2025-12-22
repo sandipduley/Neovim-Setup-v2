@@ -153,5 +153,5 @@ sudo dnf install python3-lsp-server
 
 ```bash
 1.  Check your internet connections
-2.  Close and re-open neovim this will probalbly solve the issue
+2.  Close and re-open neovim this will probably solve the issue
 ```
