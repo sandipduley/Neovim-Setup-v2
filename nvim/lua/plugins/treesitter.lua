@@ -1,44 +1,42 @@
 -- Highlight, edit, and navigate code
 return {
   'nvim-treesitter/nvim-treesitter',
+  lazy = false,
   build = ':TSUpdate',
   dependencies = {
-    'nvim-treesitter/nvim-treesitter-textobjects',
+    {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    },
   },
   config = function()
-    local ts_config = require('nvim-treesitter.configs')
-
-    ts_config.setup {
-      -- Languages to install
+    require('nvim-treesitter.configs').setup {
       ensure_installed = {
-        'bash', 
-        'c', 
-        'css', 
-        'dockerfile', 
-        'go', 
-        'html', 
-        'javascript', 
+        'bash',
+        'c',
+        'css',
+        'dockerfile',
+        'go',
+        'html',
+        'javascript',
         'json',
-        'lua', 
-        'markdown', 
-        'markdown_inline', 
-        'python', 
-        'regex', 
+        'lua',
+        'markdown',
+        'markdown_inline',
+        'python',
+        'regex',
         'toml',
-        'vim', 
-        'vimdoc', 
-        'yaml', 
+        'vim',
+        'vimdoc',
+        'yaml',
         'gitignore',
       },
 
-      -- Automatically install missing parsers
       auto_install = true,
 
-      -- Core features
       highlight = { enable = true },
       indent = { enable = true },
 
-      -- Incremental selection
       incremental_selection = {
         enable = true,
         keymaps = {
@@ -49,11 +47,10 @@ return {
         },
       },
 
-      -- Text objects
       textobjects = {
         select = {
           enable = true,
-          lookahead = true, -- Jump forward automatically
+          lookahead = true,
           keymaps = {
             ['aa'] = '@parameter.outer',
             ['ia'] = '@parameter.inner',
