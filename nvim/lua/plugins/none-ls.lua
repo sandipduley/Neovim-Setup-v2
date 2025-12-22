@@ -18,7 +18,7 @@ return {
 				"prettier",
 				"eslint_d",
 				"shfmt",
-				"stylua",
+				-- "stylua",
 				-- "ruff",
 				-- "gofmt",
 				-- "gopls",
