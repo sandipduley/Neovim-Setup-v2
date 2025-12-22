@@ -115,102 +115,102 @@ return {
     -- LSP Servers
 
     local servers = {
-      lua_ls = {
-        cmd = { "/usr/bin/lua-language-server" },
-        settings = {
-          Lua = {
-            completion = { callSnippet = "Replace" },
-            runtime = { version = "LuaJIT" },
-            workspace = {
-              checkThirdParty = false,
-              library = vim.api.nvim_get_runtime_file("", true),
-            },
-            diagnostics = {
-              globals = { "vim" },
-              disable = { "missing-fields" },
-            },
-            format = { enable = false },
-          },
-        },
-      },
-
-      pylsp = {
-        settings = {
-          pylsp = {
-            plugins = {
-              pyflakes = { enabled = false },
-              pycodestyle = { enabled = false },
-              autopep8 = { enabled = false },
-              yapf = { enabled = false },
-              mccabe = { enabled = false },
-              pylsp_mypy = { enabled = false },
-              pylsp_black = { enabled = false },
-              pylsp_isort = { enabled = false },
-            },
-          },
-        },
-      },
-
-      bashls = {
-        settings = {
-          bashIde = {
-            globPattern = "**/*@(.sh|.inc|.bash|.command)", -- files to watch
-            completion = true,
-            diagnostics = true,
-            formatting = true, -- use shellcheck or shfmt
-            filetypes = { "sh", "bash", "zsh" },
-          },
-        },
-      },
-
-      ruff = {
-        settings = {
-          python = {
-            linting = {
-              enabled = true,
-              flake8Enabled = false,
-              pylintEnabled = false,
-              ruffEnabled = true,
-            },
-            formatting = {
-              provider = "ruff", -- auto-format on save
-            },
-          },
-        },
-      },
-
-      dockerls = {
-        settings = {
-          docker = {
-            validate = true,       -- validate Dockerfile syntax
-            completion = true,     -- auto-completion
-          },
-        },
-      },
-
-      docker_compose_language_service = {
-        settings = {
-          yaml = {
-            schemas = {
-              ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose*.yml",
-            },
-            validate = true,
-            completion = true,
-          },
-        },
-      },
-
-      gopls = {
-        settings = { gopls = { gofumpt = true, staticcheck = true } },
-      },
-      
-      ts_ls = {
-        settings = {
-          javascript = { format = { enable = true } },
-          typescript = { format = { enable = true } },
-        },
-      },
-    }
+    --   lua_ls = {
+    --     cmd = { "/usr/bin/lua-language-server" },
+    --     settings = {
+    --       Lua = {
+    --         completion = { callSnippet = "Replace" },
+    --         runtime = { version = "LuaJIT" },
+    --         workspace = {
+    --           checkThirdParty = false,
+    --           library = vim.api.nvim_get_runtime_file("", true),
+    --         },
+    --         diagnostics = {
+    --           globals = { "vim" },
+    --           disable = { "missing-fields" },
+    --         },
+    --         format = { enable = false },
+    --       },
+    --     },
+    --   },
+    --
+    --   pylsp = {
+    --     settings = {
+    --       pylsp = {
+    --         plugins = {
+    --           pyflakes = { enabled = false },
+    --           pycodestyle = { enabled = false },
+    --           autopep8 = { enabled = false },
+    --           yapf = { enabled = false },
+    --           mccabe = { enabled = false },
+    --           pylsp_mypy = { enabled = false },
+    --           pylsp_black = { enabled = false },
+    --           pylsp_isort = { enabled = false },
+    --         },
+    --       },
+    --     },
+    --   },
+    --
+    --   bashls = {
+    --     settings = {
+    --       bashIde = {
+    --         globPattern = "**/*@(.sh|.inc|.bash|.command)", -- files to watch
+    --         completion = true,
+    --         diagnostics = true,
+    --         formatting = true, -- use shellcheck or shfmt
+    --         filetypes = { "sh", "bash", "zsh" },
+    --       },
+    --     },
+    --   },
+    --
+    --   ruff = {
+    --     settings = {
+    --       python = {
+    --         linting = {
+    --           enabled = true,
+    --           flake8Enabled = false,
+    --           pylintEnabled = false,
+    --           ruffEnabled = true,
+    --         },
+    --         formatting = {
+    --           provider = "ruff", -- auto-format on save
+    --         },
+    --       },
+    --     },
+    --   },
+    --
+    --   dockerls = {
+    --     settings = {
+    --       docker = {
+    --         validate = true,       -- validate Dockerfile syntax
+    --         completion = true,     -- auto-completion
+    --       },
+    --     },
+    --   },
+    --
+    --   docker_compose_language_service = {
+    --     settings = {
+    --       yaml = {
+    --         schemas = {
+    --           ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose*.yml",
+    --         },
+    --         validate = true,
+    --         completion = true,
+    --       },
+    --     },
+    --   },
+    --
+    --   gopls = {
+    --     settings = { gopls = { gofumpt = true, staticcheck = true } },
+    --   },
+    --   
+    --   ts_ls = {
+    --     settings = {
+    --       javascript = { format = { enable = true } },
+    --       typescript = { format = { enable = true } },
+    --     },
+    --   },
+    -- }
 
 
     -- Mason Installer
