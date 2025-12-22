@@ -210,7 +210,8 @@ return {
     --       typescript = { format = { enable = true } },
     --     },
     --   },
-    -- }
+      
+    }
 
 
     -- Mason Installer
