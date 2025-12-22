@@ -148,3 +148,10 @@ pipx install python-lsp-server
 ```bash
 sudo dnf install python3-lsp-server
 ```
+
+#### clone failed -- could not resolve host : github
+
+```bash
+1.  Check your internet connections
+2.  Close and re-open neovim this will probalbly solve the issue
+```
