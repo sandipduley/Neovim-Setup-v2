@@ -1,13 +1,9 @@
--- Highlight, edit, and navigate code
 return {
   'nvim-treesitter/nvim-treesitter',
   lazy = false,
   build = ':TSUpdate',
   dependencies = {
-    {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-      dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    },
+    'nvim-treesitter/nvim-treesitter-textobjects',
   },
   config = function()
     require('nvim-treesitter.configs').setup {
@@ -35,15 +31,17 @@ return {
       auto_install = true,
 
       highlight = { enable = true },
-      indent = { enable = true },
+
+      -- Disable indent to avoid bugs
+      indent = { enable = false },
 
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = '<c-space>',
-          node_incremental = '<c-space>',
-          scope_incremental = '<c-s>',
-          node_decremental = '<M-space>',
+          init_selection = 'gnn',
+          node_incremental = 'grn',
+          scope_incremental = 'grc',
+          node_decremental = 'grm',
         },
       },
 
