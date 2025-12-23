@@ -26,7 +26,6 @@ vim.opt.rtp:prepend(lazypath)
 require("core.options")
 require("core.keymaps")
 
-
 -- Plugin setup
 
 require("lazy").setup({
@@ -48,10 +47,9 @@ require("lazy").setup({
     { import = "plugins.none-ls" },
     { import = "plugins.telescope" },
     { import = "plugins.tiny-inline-diagnostic" },
-    { import = "plugins.treesitter" },
     { import = "plugins.undotree" },
     { import = "plugins.yazi" },  },
-
+    { import = "plugins.treesitter" },
   change_detection = {
     notify = false,
   },
