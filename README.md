@@ -33,6 +33,8 @@ https://github.com/neovim/neovim/blob/master/INSTALL.md
 14. **make**
 15. **cmake**
 16. **shellcheck**
+17. **yazi -- optional**
+18. **lazygit -- optional**
 
 ---
 
@@ -63,25 +65,56 @@ go install honnef.co/go/tools/cmd/staticcheck@latest
 
 ---
 
-## 🔌 Installation
+## Optional: If you configured Neovim previously, remove it to prevent any conflicts.
+
+#### Arch
 
 ```bash
-rm -rf ~/.config/nvim
+sudo pacman -Rns neovim
+```
 
-git clone --depth=1 https://github.com/sandipduley/Neovim-Setup.git
+#### Debian
 
-cd Neovim-Setup
+```bash
+sudo apt --autoremove --purge neovim
+```
 
-cp -r nvim/ ~/.config/nvim/
+#### Red Hat
+
+```bash
+sudo dnf remove neovim neovim-runtime
 ```
 
 ---
 
-## 🐋 Docker
+## Remove neovim cache
+
+```bash
+rm -rf ~/.config/nvim\
+      ~/.local/share/nvim\
+     ~/.local/state/nvim\
+    ~/.cache/nvim
+```
+
+---
+
+## Installation
+
+git clone --depth=1 https://github.com/sandipduley/Neovim-Setup-v2.git
+
+cd Neovim-Setup-v2
+
+cp -r nvim/ ~/.config/nvim/
+
+````
+
+---
+
+## 🐋 Docker: Older version
 
 ```bash
 docker run -it --name custom-name sandipduley/neovim /bin/bash
-```
+````
 
 ---
 
@@ -143,15 +176,10 @@ sudo apt install python3 pipx
 pipx install python-lsp-server
 ```
 
-###### Fedora
+###### Red Hat
 
 ```bash
 sudo dnf install python3-lsp-server
 ```
 
-#### clone failed -- could not resolve host : github
-
-```bash
-1.  Check your internet connections
-2.  Close and re-open neovim this will probably solve the issue
-```
+---
