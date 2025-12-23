@@ -126,45 +126,45 @@ return {
         },
       },
 
-      pyright = {
-        settings = {
-          python = {
-            analysis = {
-              typeCheckingMode = "strict",
-              diagnosticMode = "workspace",
-            },
-          },
-        },
-      },
-
-      ruff = {},
-
-      bashls = {
-        settings = {
-          bashIde = {
-            globPattern = "**/*@(.sh|.inc|.bash|.command)",
-          },
-        },
-      },
-
-      dockerls = {},
-      docker_compose_language_service = {},
-
-      gopls = {
-        settings = {
-          gopls = {
-            gofumpt = true,
-            staticcheck = true,
-          },
-        },
-      },
-
-      ts_ls = {
-        settings = {
-          javascript = { format = { enable = true } },
-          typescript = { format = { enable = true } },
-        },
-      },
+      -- pyright = {
+      --   settings = {
+      --     python = {
+      --       analysis = {
+      --         typeCheckingMode = "strict",
+      --         diagnosticMode = "workspace",
+      --       },
+      --     },
+      --   },
+      -- },
+      --
+      -- ruff = {},
+      --
+      -- bashls = {
+      --   settings = {
+      --     bashIde = {
+      --       globPattern = "**/*@(.sh|.inc|.bash|.command)",
+      --     },
+      --   },
+      -- },
+      --
+      -- dockerls = {},
+      -- docker_compose_language_service = {},
+      --
+      -- gopls = {
+      --   settings = {
+      --     gopls = {
+      --       gofumpt = true,
+      --       staticcheck = true,
+      --     },
+      --   },
+      -- },
+      --
+      -- ts_ls = {
+      --   settings = {
+      --     javascript = { format = { enable = true } },
+      --     typescript = { format = { enable = true } },
+      --   },
+      -- },
     }
 
     -- Mason Installer
