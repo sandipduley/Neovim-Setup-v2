@@ -1,5 +1,6 @@
 return {
 	"nvimtools/none-ls.nvim",
+	event = { "BufReadPre", "BufNewFile" },
 
 	dependencies = {
 		"nvimtools/none-ls-extras.nvim",
@@ -8,32 +9,42 @@ return {
 
 	config = function()
 		local null_ls = require("null-ls")
+		local mason_null_ls = require("mason-null-ls")
+
 		local formatting = null_ls.builtins.formatting
 		local diagnostics = null_ls.builtins.diagnostics
 
-		-- Install formatters and linters automatically
-		require("mason-null-ls").setup({
+		-- Mason: auto-install tools used by none-ls
+		mason_null_ls.setup({
 			ensure_installed = {
+				-- General
 				"checkmake",
 				"prettier",
 				"eslint_d",
 				"shfmt",
-				-- "stylua",
-				-- "ruff",
-				-- "gofmt",
-				-- "gopls",
-				-- "goimports",
-				-- "golangci_lint",
 				"shellcheck",
+				"stylua",
+
+				-- Python
+				"ruff",
+
+				-- Go
+				"gofmt",
+				"goimports",
+				"golangci_lint",
+
+				-- SQL
+				"sqlfluff",
 			},
 			automatic_installation = true,
 		})
 
-		-- Tools used for formatting and diagnostics
+		-- none-ls sources
 		local sources = {
+			-- Make
 			diagnostics.checkmake,
 
-			-- JS / TS / Web files
+			-- JS / TS / Web
 			formatting.prettier.with({
 				filetypes = {
 					"html",
@@ -52,48 +63,61 @@ return {
 			}),
 			diagnostics.eslint_d,
 
-			-- Lua formatter
-			-- formatting.stylua,
-
-			-- Shell format & lint
-			formatting.shfmt.with({ args = { "-i", "4" } }),
+			-- Shell
+			formatting.shfmt.with({
+				extra_args = { "-i", "4" },
+			}),
 			diagnostics.shellcheck,
 
-			-- Python (ruff formatter + ruff format)
-			require("none-ls.formatting.ruff").with({ extra_args = { "--extend-select", "I" } }),
+			-- Python (ruff as formatter + import sorter)
+			require("none-ls.formatting.ruff").with({
+				extra_args = { "--extend-select", "I" },
+			}),
 			require("none-ls.formatting.ruff_format"),
 
-			-- Go formatters & linter
+			-- Go
 			formatting.gofumpt,
-			formatting.goimports_reviser,
+			formatting.goimports,
 			diagnostics.golangci_lint,
 
-			-- SQL formatter & linter
-			formatting.sqlfluff.with({ extra_args = { "--dialect", "mysql" } }),
+			-- SQL
+			formatting.sqlfluff.with({
+				extra_args = { "--dialect", "mysql" },
+			}),
 			diagnostics.sqlfluff,
 		}
 
-		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+		local format_augroup = vim.api.nvim_create_augroup("NoneLsFormat", { clear = true })
 
-		-- Setup null-ls and autoformat on save
 		null_ls.setup({
 			sources = sources,
 
 			on_attach = function(client, bufnr)
-				-- Check if the attached client can format
-				if client.supports_method("textDocument/formatting") then
-					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-
-					-- Format file before saving
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						group = augroup,
-						buffer = bufnr,
-						callback = function()
-							vim.lsp.buf.format({ async = false })
-						end,
-					})
+				if not client.supports_method("textDocument/formatting") then
+					return
 				end
+
+				vim.api.nvim_clear_autocmds({
+					group = format_augroup,
+					buffer = bufnr,
+				})
+
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					group = format_augroup,
+					buffer = bufnr,
+					callback = function()
+						vim.lsp.buf.format({
+							bufnr = bufnr,
+							async = false,
+							filter = function(c)
+								return c.name == "null-ls"
+							end,
+						})
+					end,
+				})
 			end,
 		})
 	end,
 }
+
+
