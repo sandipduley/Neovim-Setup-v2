@@ -53,7 +53,7 @@ return {
 			diagnostics.eslint_d,
 
 			-- Lua formatter
-			formatting.stylua,
+			-- formatting.stylua,
 
 			-- Shell format & lint
 			formatting.shfmt.with({ args = { "-i", "4" } }),
