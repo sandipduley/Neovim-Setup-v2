@@ -39,7 +39,7 @@ https://github.com/neovim/neovim/blob/master/INSTALL.md
 ## 📦 Install VsCode LSP Servers
 
 ```bash
-npm install -g vscode-langservers-extracted
+sudo npm install -g vscode-langservers-extracted
 ```
 
 ---
