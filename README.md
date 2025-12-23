@@ -100,13 +100,17 @@ rm -rf ~/.config/nvim\
 
 ## Installation
 
+```bash
 git clone --depth=1 https://github.com/sandipduley/Neovim-Setup-v2.git
+```
 
+```bash
 cd Neovim-Setup-v2
+```
 
+```bash
 cp -r nvim/ ~/.config/nvim/
-
-````
+```
 
 ---
 
@@ -114,7 +118,7 @@ cp -r nvim/ ~/.config/nvim/
 
 ```bash
 docker run -it --name custom-name sandipduley/neovim /bin/bash
-````
+```
 
 ---
 
