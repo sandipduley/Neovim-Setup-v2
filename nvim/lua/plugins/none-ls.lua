@@ -11,96 +11,57 @@ return {
 		local null_ls = require("null-ls")
 		local mason_null_ls = require("mason-null-ls")
 
-		local formatting = null_ls.builtins.formatting
+		local formatting  = null_ls.builtins.formatting
 		local diagnostics = null_ls.builtins.diagnostics
 
-		-- Mason: auto-install tools used by none-ls
+		-- Mason: auto-install tools
 		mason_null_ls.setup({
 			ensure_installed = {
-				-- General
-				"checkmake",
-				"prettier",
-				"eslint_d",
-				"shfmt",
-				"shellcheck",
-				"stylua",
-
-				-- Python
-				"ruff",
-
-				-- Go
-				"gofmt",
-				"goimports",
-				"golangci_lint",
-
-				-- SQL
-				"sqlfluff",
+				"checkmake", "prettier", "eslint_d", "shfmt", "shellcheck", "stylua"
+				-- "ruff", 
+				-- "gofmt", 
+				-- "goimports", 
+				-- "golangci_lint", 
+				-- "sqlfluff",
 			},
 			automatic_installation = true,
 		})
 
-		-- none-ls sources
+		-- Sources
 		local sources = {
-			-- Make
 			diagnostics.checkmake,
 
-			-- JS / TS / Web
 			formatting.prettier.with({
 				filetypes = {
-					"html",
-					"json",
-					"yaml",
-					"markdown",
-					"javascript",
-					"javascriptreact",
-					"typescript",
-					"typescriptreact",
-					"css",
-					"scss",
-					"vue",
-					"svelte",
+					"html","json","yaml","markdown","javascript","javascriptreact",
+					"typescript","typescriptreact","css","scss","vue","svelte",
 				},
 			}),
 			diagnostics.eslint_d,
 
-			-- Shell
-			formatting.shfmt.with({
-				extra_args = { "-i", "4" },
-			}),
+			formatting.shfmt.with({ extra_args = { "-i", "4" } }),
 			diagnostics.shellcheck,
 
-			-- Python (ruff as formatter + import sorter)
-			require("none-ls.formatting.ruff").with({
-				extra_args = { "--extend-select", "I" },
-			}),
+			require("none-ls.formatting.ruff").with({ extra_args = { "--extend-select", "I" } }),
 			require("none-ls.formatting.ruff_format"),
 
-			-- Go
 			formatting.gofumpt,
 			formatting.goimports,
 			diagnostics.golangci_lint,
 
-			-- SQL
-			formatting.sqlfluff.with({
-				extra_args = { "--dialect", "mysql" },
-			}),
+			formatting.sqlfluff.with({ extra_args = { "--dialect", "mysql" } }),
 			diagnostics.sqlfluff,
 		}
 
+		-- Format on Save
 		local format_augroup = vim.api.nvim_create_augroup("NoneLsFormat", { clear = true })
 
 		null_ls.setup({
 			sources = sources,
-
 			on_attach = function(client, bufnr)
-				if not client.supports_method("textDocument/formatting") then
-					return
-				end
+				if not client.supports_method("textDocument/formatting") then return end
 
-				vim.api.nvim_clear_autocmds({
-					group = format_augroup,
-					buffer = bufnr,
-				})
+				vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
 
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					group = format_augroup,
@@ -109,9 +70,7 @@ return {
 						vim.lsp.buf.format({
 							bufnr = bufnr,
 							async = false,
-							filter = function(c)
-								return c.name == "null-ls"
-							end,
+							filter = function(c) return c.name == "null-ls" end,
 						})
 					end,
 				})
@@ -119,5 +78,4 @@ return {
 		})
 	end,
 }
-
 
