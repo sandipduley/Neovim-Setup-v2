@@ -49,6 +49,8 @@ require("lazy").setup({
     { import = "plugins.tiny-inline-diagnostic" },
     { import = "plugins.undotree" },
     { import = "plugins.yazi" },  },
+    
+    -- Loading treesitter separately to prevent unable to load/find treesitter dir 
     { import = "plugins.treesitter" },
   change_detection = {
     notify = false,
