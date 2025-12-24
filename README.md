@@ -66,7 +66,7 @@ go install honnef.co/go/tools/cmd/staticcheck@latest
 
 ---
 
-## Optional: If you configured Neovim previously, remove it to prevent any conflicts.
+## ⚔️ Optional: If you configured Neovim previously, remove it to prevent any conflicts.
 
 #### Arch
 
@@ -88,7 +88,7 @@ sudo dnf remove neovim neovim-runtime
 
 ---
 
-## Remove neovim cache
+## 🗡️ Remove neovim cache
 
 ```bash
 rm -rf ~/.config/nvim\
@@ -99,7 +99,7 @@ rm -rf ~/.config/nvim\
 
 ---
 
-## Installation
+## 🔌 Installation
 
 ```bash
 git clone --depth=1 https://github.com/sandipduley/Neovim-Setup-v2.git
@@ -115,10 +115,10 @@ cp -r nvim/ ~/.config/nvim/
 
 ---
 
-## 🐋 Docker: Older version
+## 🐋 Docker
 
 ```bash
-docker run -it --name custom-name sandipduley/neovim /bin/bash
+docker run -it --name custom-name sandipduley/neovim-udev /bin/bash
 ```
 
 ---
