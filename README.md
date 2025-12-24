@@ -35,6 +35,7 @@ https://github.com/neovim/neovim/blob/master/INSTALL.md
 16. **shellcheck**
 17. **yazi -- optional**
 18. **lazygit -- optional**
+19. **diffutils**
 
 ---
 
