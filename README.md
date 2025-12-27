@@ -77,7 +77,7 @@ sudo pacman -Rns neovim
 #### Debian
 
 ```bash
-sudo apt --autoremove --purge neovim
+sudo apt autoremove --purge neovim
 ```
 
 #### Red Hat
