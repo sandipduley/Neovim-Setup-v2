@@ -17,7 +17,8 @@ return {
 		-- Mason: auto-install tools
 		mason_null_ls.setup({
 			ensure_installed = {
-				"checkmake", "prettier", "eslint_d", "shfmt", "stylua"
+				"checkmake", "prettier", "eslint_d", "stylua"
+				-- "shfmt",
 				-- "ruff", 
 				-- "gofmt", 
 				-- "goimports", 
