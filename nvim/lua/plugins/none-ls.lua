@@ -54,6 +54,8 @@ return {
 				formatting.gofumpt,
 				formatting.goimports,
 
+				formatting.shfmt,
+
 				formatting.sqlfluff.with({
 					extra_args = { "--dialect", "mysql" },
 				}),
@@ -62,4 +64,3 @@ return {
 		})
 	end,
 }
-
