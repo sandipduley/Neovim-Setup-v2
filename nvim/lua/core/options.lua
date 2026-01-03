@@ -2,7 +2,7 @@
 vim.opt.termguicolors = true        -- enable true color
 vim.wo.number = true               -- absolute line numbers
 vim.o.relativenumber = true        -- relative line numbers
-vim.o.numberwidth = 4              -- number column width
+vim.o.numberwidth = 2              -- number column width
 vim.o.cursorline = true            -- highlight current line
 vim.wo.signcolumn = 'yes'          -- always show signcolumn
 vim.o.showmode = false             -- hide mode text
@@ -25,7 +25,7 @@ vim.o.clipboard = 'unnamedplus'    -- sync system clipboard
 -- indentation / tabs
 vim.o.expandtab = true             -- tabs to spaces
 vim.o.shiftwidth = 2               -- indent size
-vim.o.tabstop = 4                  -- tab width
+vim.o.tabstop = 2                  -- tab width
 vim.o.softtabstop = 2              -- editing tab width
 vim.o.smartindent = true           -- smarter indentation
 vim.o.autoindent = true            -- copy indent from current line
