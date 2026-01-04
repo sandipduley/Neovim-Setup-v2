@@ -73,7 +73,7 @@ return {
 				},
 
 				buffer_selected = {
-					fg = "#ECEFF4",
+					fg = "#E03A38",
 					bg = "NONE",
 					bold = true,
 					italic = false,
